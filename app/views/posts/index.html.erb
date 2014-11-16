@@ -1,0 +1,17 @@
+<% @posts.each do |post| %>
+<div class="blog-post">
+  <h2 class="blog-post-title">
+    <%= link_to post.title, post_path(post) %>
+  </h2>
+  <p class="blog-post-meta"><%= post.published_at.strftime("%B %d, %Y") %></p>
+
+  <%= post.body %>
+</div>
+<% end %>
+
+<nav>
+  <ul class="pager">
+    <li><a href="#">Previous</a></li>
+    <li><a href="#">Next</a></li>
+  </ul>
+</nav>

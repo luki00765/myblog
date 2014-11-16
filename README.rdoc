@@ -1,0 +1,46 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+
+
+== Opis strony
+
+Po wejsciu na glowna strone widzimy
+- formularz z szybka rejestracja
+- odnosnik do strony z logowaniem
+- 3 losowe odnosniki do blogow
+
+Po nieudanym zarejestrowaniu sie zostajemy przekierowani na strone z formularzem rejestracji i wykazem bledow
+Na stronie z logowaniem widnieje tylko formularz logowania
+
+Po zalogowaniu sie jesli nie utworzylismy zadnego bloga to zostajemy przekierowani na strone z formularzem dot. tworzenia bloga
+Jezeli mamy juz utworzonego bloga to zostaja nam wyswietlone utworzone wczesniej blogi z mozliwoscia utworzenia nowego, edycji istniejacego, zawieszenia i przejsciem do widoku wybranego bloga
+
+Po wybraniu bloga jesli jest nasz to mamy mozliwosc wstawienia do niego nowego posta
+Po wybraniu posta mamy mozliwosc wstawienia komentarza

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myblog</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link rel="stylesheet" type="text/css" href="/assets/blog.css" >
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'shared/navbar_authenticated' %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li>
+              <a href="<%= dashboard_url(subdomain: false) %>">Back <span class="sr-only">(current)</span></a>
+            </li>
+            <li>
+              <%= link_to 'Preview', authenticated_root_url %>
+            </li>
+            <li class="<%= 'active' if current_page?(dashboard_posts_url) %>">
+              <%= link_to 'Posts', dashboard_posts_url %>
+            </li>
+            <li class="<%= 'active' if current_page?(dashboard_customise_blog_url) %>">
+              <%= link_to 'Customise', dashboard_customise_blog_url %>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Dashboard</h1>
+          <h2 class="sub-header">
+            <%= yield :sub_header %>
+          </h2>
+
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+
+          <%= yield %>
+
+        </div>
+      </div>
+    </div>
+
+    <%#= link_to 'Blogs',  dashboard_blogs_path %>
+    <%#= link_to 'Posts',  dashboard_blog_posts_path(@blog) %>
+    <%#= link_to 'New Post',  new_dashboard_blog_post_path(@blog) %>
+  </body>
+</html>

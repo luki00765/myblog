@@ -1,0 +1,36 @@
+<% content_for :sub_header do %>
+  Customise
+<% end %>
+
+<%= form_for @blog, url: dashboard_customise_blog_patch_path do |f| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+      <ul>
+      <% @blog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :subdomain %>
+    <%= f.text_field :subdomain, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :template_color %>
+    <%= f.color_field :template_color %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-default' %>
+  </div>
+<% end %>

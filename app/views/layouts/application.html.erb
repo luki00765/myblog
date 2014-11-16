@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Myblog</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'shared/navbar_unauthenticated' %>
+
+    <div class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h1 class="hero-title">Accelerating the Evolution of HTML5</h1>
+            <p class="hero-description">Create applications of superior quality with the unrivaled authoring features of <span class="nowrap">Montage Studio</span>.</p>
+          </div>
+
+          <div class="col-md-7">
+            <img src="/assets/myblog.png" style="position: absolute; bottom: -350px;">
+            <img src="/assets/myblog-2.png" style="position: absolute; right: 420px; bottom: -430px;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="wrapper" style="position: absolute; top: 630px;">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

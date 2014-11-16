@@ -1,0 +1,38 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "dashboard";
+@import "blog";
+
+.navbar {
+  background-color: #333 !important;
+}
+
+.hero {
+  background: hsl(0, 0%, 13%) url(/assets/bg-dark.jpg) no-repeat center center;
+  background-size: auto 100%;
+  border-top: none;
+  font-weight: 300;
+  padding: 60px 40px;
+}
+
+.hero-title, .hero-description {
+  max-width: 360px;
+  color: #ddd;
+}
+
+.hero-title {
+  margin-top: 0;
+  font-size: 2em;
+  line-height: 1.2;
+  font-weight: 300;
+}
+
+.navbar-form .form-control {
+  border-color: #2d2d2d !important;
+  background-color: #444 !important;
+  color: #fff !important;
+}
+
+.navbar-form .form-control:focus {
+  border-color: #aaa !important;
+}
