@@ -2,8 +2,8 @@
 <html>
   <head>
     <title><%= @blog.name %> | Myblog</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <link rel="stylesheet" type="text/css" href="/assets/dashboard.css" >
+    <%= stylesheet_link_tag    'bootstrap-loader', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'blog', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
@@ -36,7 +36,7 @@
     <div class="container">
       <div class="blog-header">
         <h1 class="blog-title">
-          <%= @blog.name %>
+          <span class="tooltip-item" data-container="body" data-toggle="popover" data-placement="right" title="Blog's name" data-content="You can change it if you want."><%= @blog.name %></span>
         </h1>
         <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
       </div>
@@ -55,12 +55,37 @@
             <h4>Archives</h4>
             <ol class="list-unstyled">
               <% display_archives(@blog.posts).each do |archive| %>
-              <li><%= link_to archive, archive_url(archive.downcase.split(' ').join('-')) %>
+              <li><%= link_to archive, blog_archives_path(alias: @blog.alias, date: archive.downcase.split(' ').join('-')) %></li>
               <% end %>
             </ol>
           </div>
         </div>
       </div>
     </div>
+
+    <script type="text/javascript">
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
+
+      var block_page = $('<div class="paulund_block_page"></div>');
+      $(block_page).appendTo('body');
+
+      /*Block page overlay*/
+      var pageHeight = $(document).height();
+      var pageWidth = $(window).width();
+
+      function add_styles(){
+        $('.paulund_block_page').css({
+          'position':'absolute',
+          'top':'0',
+          'left':'0',
+          'background-color':'rgba(0,0,0,0.7)',
+          'height':pageHeight,
+          'width':pageWidth,
+          'z-index':'10'
+        });
+      }
+    </script>
   </body>
 </html>

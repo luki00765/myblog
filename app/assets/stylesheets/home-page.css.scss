@@ -1,0 +1,143 @@
+html,body {
+  height:100%;
+  background: url('/assets/leaf-structure.png') #eee no-repeat center;
+  background-size: 30%;
+}
+
+#start  {
+  height: 100%;
+  width: 100%;
+  display: table;
+  background-color: #111;
+}
+
+#start .container {
+  color: #eee;
+  width: 100%;
+  min-height:100%;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 60px 0px;
+}
+
+#start .container h1 {
+  font-size: 4em !important;
+}
+
+#customise, #features {
+  color: #666;
+  background-color: #eee;
+  padding-top: 50px;
+}
+
+footer {
+  padding: 50px;
+  background-color: #eee;
+}
+
+
+#customise .form-horizontal {
+  margin-top: 30px;
+}
+
+.navbar-right {
+  margin-right: 0;
+}
+
+
+
+
+
+.navbar-brand {
+  font-size: 1.5em;
+}
+
+.navbar {
+  background-color: #222222 !important;
+  border: 0px solid transparent;
+}
+
+.navbar-header {
+  background-color: #222222 !important;
+  border: 0px solid transparent;
+}
+
+.navbar-static-top {
+  border-width: 0px !important;
+}
+
+.navbar a:hover, .navbar a:visited, .navbar a:link, .navbar a:focus, .navbar a:active  {
+  background: none !important;
+}
+
+.navbar a .fa {
+  color: #a8acb1  !important;
+}
+
+.navbar a:hover .fa {
+  color: #fff !important;
+}
+
+.navbar-top-links {
+  margin-right: 0;
+}
+
+.navbar-top-links li {
+  display: inline-block;
+}
+
+.navbar-top-links li:last-child {
+  margin-right: 15px;
+}
+
+.navbar-top-links li a {
+  padding: 15px;
+  min-height: 50px;
+}
+
+.navbar-top-links .dropdown-menu li {
+  display: block;
+}
+
+.navbar-top-links .dropdown-menu li:last-child {
+  margin-right: 0;
+}
+
+.navbar-top-links .dropdown-menu li a {
+  padding: 3px 20px;
+  min-height: 0;
+}
+
+.navbar-top-links .dropdown-menu li a div {
+  white-space: normal;
+}
+
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+  width: 310px;
+  min-width: 0;
+}
+
+.navbar-top-links .dropdown-messages {
+  margin-left: 5px;
+}
+
+.navbar-top-links .dropdown-tasks {
+  margin-left: -59px;
+}
+
+.navbar-top-links .dropdown-alerts {
+  margin-left: -123px;
+}
+
+.navbar-top-links .dropdown-user {
+  right: 0;
+  left: auto;
+}
+
+.navbar-top-links .dropdown-messages,
+  .navbar-top-links .dropdown-tasks,
+  .navbar-top-links .dropdown-alerts {
+    margin-left: auto;
+  }

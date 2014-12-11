@@ -1,33 +1,44 @@
-<h1>New blog</h1>
+<%= render "shared/navbar_authenticated" %>
 
-<%= dashboard_new_blog_path %>
-and
-<%= dashboard_new_blog_post_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">
+        <i class="fa fa-plus fa-fw"></i> New blog
+      </h1>
+    </div>
+  </div>
 
-<%= form_for @blog, url: dashboard_new_blog_post_path do |f| %>
-  <% if @blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+  <%= form_for @blog, url: dashboard_new_blog_path do |f| %>
+    <% if @blog.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
 
-      <ul>
-      <% @blog.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @blog.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :alias %><br>
+      <%= f.text_field :alias %>
+    </div>
+
+    <div class="field">
+      <%= f.label :template_color %><br>
+      <%= f.text_field :template_color %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :subdomain %><br>
-    <%= f.text_field :subdomain %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

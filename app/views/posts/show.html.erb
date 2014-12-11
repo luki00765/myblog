@@ -1,6 +1,6 @@
 <h2><%= @post.title %></h2>
 <%= @post.published_at %>
-<p><%= @post.body %></p>
+<%= @post.body.html_safe %>
 
 <ul class="media-list">
   <% @post.comments.each do |comment| %>
@@ -16,7 +16,7 @@
   <% end %>
 </ul>
 
-<%= form_for [@post, @post.comments.build] do |f| %>
+<%= form_for [@post, @post.comments.build], url: blog_post_new_comment_path(alias: @blog.alias, post_id: @post.id)  do |f| %>
     <%= f.label :body %><br>
     <%= f.text_area :body %>
 

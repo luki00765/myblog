@@ -1,18 +1,47 @@
-<h2>Sign up</h2>
+<% yield header: 'Sign up' %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to unauthenticated_root_url, class: 'navbar-brand' do %>
+        <span class="leaficon"></span> My Blog
+      <% end %>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Start', unauthenticated_root_path(anchor: 'start') %></li>
+        <li><%= link_to 'Features', unauthenticated_root_path(anchor: 'features') %></li>
+        <li><%= link_to 'Customise', unauthenticated_root_path(anchor: 'customise') %></li>
+        <li class="sign-up"><%= link_to 'Sign in', new_user_session_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-signup'}) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+    <div class="form-group">
+      <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: :email %>
+    </div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    <div class="form-group">
+      <%= f.password_field :password, autofocus: "off", class: 'form-control', placeholder: :password %>
+    </div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+    <div class="form-group">
+      <%= f.password_field :password_confirmation, autofocus: "off", class: 'form-control', placeholder: :password_confirmation %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success btn-block">Sign up</button>
+    </div>
+  <% end %>
+</div>

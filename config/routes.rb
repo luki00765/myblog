@@ -1,34 +1,15 @@
-class Subdomain
-  def self.matches?(request)
-    subdomains = request.subdomains.dup
-    subdomains.pop
-    subdomains.pop
-    subdomains.present? && subdomains.length == 1
-  end 
-end
-
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+  get '/home' => 'pages#home'
+
   devise_for :users
 
-  constraints(Subdomain) do
-    get '/' => 'posts#index'
-    get '/archives/:date' => 'posts#archives', as: :archive
-    resources :posts, only: [:index, :show] do
-      resources :comments, only: [:create]
-    end
-
-    namespace :dashboard do
-      get '/' => 'blogs#show', as: :blogs
-      get '/customise', to: 'blogs#edit', as: :customise_blog
-      patch '/', to: 'blogs#update', as: :customise_blog_patch
-      resources :posts
-    end
-  end
-
-  namespace :dashboard do
-    get '/' => 'blogs#index'
-    get '/blogs/new', to: 'blogs#new', as: :new_blog
-    post '/', to: 'blogs#create', as: :new_blog_post
+  scope '/blogs/:alias', as: :blog do
+    get '/posts' => 'posts#index', as: :posts
+    get '/posts/:id' => 'posts#show', as: :post
+    get '/archives/:date' => 'posts#archives', as: :archives
+    post '/posts/:post_id/comments/create' => 'comments#create', as: :post_new_comment
+    root 'posts#index'
   end
 
   devise_scope :user do
@@ -37,7 +18,27 @@ Rails.application.routes.draw do
     end
 
     unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
+      root 'pages#home', as: :unauthenticated_root
+    end
+  end
+
+  namespace :dashboard do
+    get '/blogs/new' => 'blogs#new', as: :new_blog
+    post '/blogs/new' => 'blogs#create'
+    get '/blogs/:alias/edit' => 'blogs#edit', as: :edit_blog
+    patch '/blogs/:alias/edit' => 'blogs#update'
+    get '/blogs' => 'blogs#index', as: :blogs
+    get '/blogs/:alias' => 'blogs#show', as: :blog
+    get '/blogs/:alias/customise' => 'blogs#edit', as: :customise_blog
+    patch '/blogs/:alias/customise' => 'blogs#update'
+    
+    scope '/blogs/:alias', as: :blog do
+      get '/posts/new' => 'posts#new', as: :new_post
+      post '/posts/new' => 'posts#create'
+      get '/posts/:id/edit' => 'posts#edit', as: :edit_post
+      patch '/posts/:id/edit' => 'posts#update'
+      get '/posts' => 'posts#index', as: :posts
     end
   end
 end
+

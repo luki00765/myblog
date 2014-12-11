@@ -1,38 +1,76 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "dashboard";
-@import "blog";
+@import "font-awesome";
+
+.leaficon {
+  background: url('/assets/leaf.svg') no-repeat center;
+  background-size: 100% auto;
+  height: 18px;
+  width: 18px;
+  float: left;
+  margin-right: 5px;
+}
 
 .navbar {
-  background-color: #333 !important;
+  //background-color: #171717 !important;
+  border: 0px solid transparent;
 }
 
-.hero {
-  background: hsl(0, 0%, 13%) url(/assets/bg-dark.jpg) no-repeat center center;
-  background-size: auto 100%;
-  border-top: none;
-  font-weight: 300;
-  padding: 60px 40px;
+.navbar .sign-up {
+  background-color: #8cc641 !important;
 }
 
-.hero-title, .hero-description {
-  max-width: 360px;
-  color: #ddd;
+.navbar .sign-up a {
+  color: #000 !important;
 }
 
-.hero-title {
-  margin-top: 0;
-  font-size: 2em;
-  line-height: 1.2;
-  font-weight: 300;
+.navbar .sign-up a:hover {
+  color: #fff !important;
+}
+
+.navbar .navbar-brand {
+  font-size: 1.5em;
 }
 
 .navbar-form .form-control {
-  border-color: #2d2d2d !important;
-  background-color: #444 !important;
+  border-color: #555 !important;
+  background-color: #222 !important;
   color: #fff !important;
 }
 
 .navbar-form .form-control:focus {
   border-color: #aaa !important;
 }
+
+.btn-success {
+  background-color: #8cc641 !important;
+}
+
+.btn-success:hover {
+  background-color: #7cb039 !important;
+}
+
+.btn-primary {
+  background-color: #fff !important;
+  color: #aaa;
+  border-color: #ddd;
+}
+
+.btn-primary:hover {
+  background-color: #ddd !important;
+  color: #000;
+  border-color: #aaa;
+}
+
+@media (min-width: $screen-sm-min) {
+  .form-signin {
+    width: 450px;
+    margin: 0 auto;
+  }
+
+  .form-signup {
+    width: 450px;
+    margin: 0 auto;
+  }
+}
+

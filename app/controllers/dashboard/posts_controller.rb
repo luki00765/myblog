@@ -1,9 +1,16 @@
 class Dashboard::PostsController < Dashboard::BaseController
+  before_action :authenticate_user!, except: [:index, :archives, :only]
   before_action :set_blog
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = @blog.posts
+  end
+
+  def archives
+    date = DateTime.parse(params[:date])
+    @posts = @blog.posts.where('published_at BETWEEN ? AND ?', date.beginning_of_day, date.end_of_month).all
+    render :index
   end
 
   def show
@@ -25,7 +32,7 @@ class Dashboard::PostsController < Dashboard::BaseController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to dashboard_posts_path(@blog), notice: 'Post was successfully created.' }
+        format.html { redirect_to dashboard_blog_posts_path(alias: @blog.alias), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -55,11 +62,15 @@ class Dashboard::PostsController < Dashboard::BaseController
   end
 
   private
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def set_blog
+    @blog = Blog.find_by_alias(params[:alias])    
+  end
 
-    def post_params
-      params.require(:post).permit(:title, :body, :published_at)
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body, :published_at)
+  end
 end

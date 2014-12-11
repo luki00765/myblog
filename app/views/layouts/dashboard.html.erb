@@ -1,25 +1,378 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myblog</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <link rel="stylesheet" type="text/css" href="/assets/dashboard.css" >
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Dashboard | My Blog</title>
+    <%= stylesheet_link_tag 'dashboard', media: 'all' %>
+    <link href="/assets/metisMenu.css" rel="stylesheet">
+
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
+
   <body>
-    <%= render 'shared/navbar_authenticated' %>
+    <div id="wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-bottom: 0px;">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to dashboard_blog_path(alias: @blog.alias), class: 'navbar-brand' do %>
+            <span class="leaficon"></span> My Blog
+          <% end %>
+        </div>
+        <!-- /.navbar-header -->
+        
+        <ul class="nav navbar-top-links navbar-left">
+          <li class="">
+            <%= link_to blog_posts_path(alias: @blog.alias) do %>
+              <i class="fa fa-eye fa-fw"></i> View your blog
+            <% end %>
+          </li>
+        </ul>
 
-    <div class="container">
-      <h1 class="page-header">Dashboard</h1>
-      <h2 class="sub-header">
-        <%= yield :sub_header %>
-      </h2>
+        <ul class="nav navbar-top-links navbar-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-messages">
+              <li>
+                <a href="#">
+                  <div>
+                    <strong>John Smith</strong>
+                    <span class="pull-right text-muted">
+                      <em>Yesterday</em>
+                    </span>
+                  </div>
+                  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <div>
+                    <strong>John Smith</strong>
+                    <span class="pull-right text-muted">
+                      <em>Yesterday</em>
+                    </span>
+                  </div>
+                  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <div>
+                    <strong>John Smith</strong>
+                    <span class="pull-right text-muted">
+                      <em>Yesterday</em>
+                    </span>
+                  </div>
+                  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a class="text-center" href="#">
+                  <strong>Read All Messages</strong>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+            <!-- /.dropdown-messages -->
+          </li>
+          <!-- /.dropdown -->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-tasks">
+              <li>
+                <a href="#">
+                  <div>
+                    <p>
+                      <strong>Task 1</strong>
+                      <span class="pull-right text-muted">40% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                        <span class="sr-only">40% Complete (success)</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <div>
+                    <p>
+                      <strong>Task 2</strong>
+                      <span class="pull-right text-muted">20% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                      <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                        <span class="sr-only">20% Complete</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <div>
+                    <p>
+                      <strong>Task 3</strong>
+                      <span class="pull-right text-muted">60% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        <span class="sr-only">60% Complete (warning)</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <div>
+                    <p>
+                      <strong>Task 4</strong>
+                      <span class="pull-right text-muted">80% Complete</span>
+                    </p>
+                    <div class="progress progress-striped active">
+                      <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                        <span class="sr-only">80% Complete (danger)</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a class="text-center" href="#">
+                  <strong>See All Tasks</strong>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+            <!-- /.dropdown-tasks -->
+          </li>
+          <!-- /.dropdown -->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-alerts">
+              <li>
+                <a href="#">
+                  <div>
+                    <i class="fa fa-comment fa-fw"></i> New Comment
+                    <span class="pull-right text-muted small">4 minutes ago</span>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <div>
+                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                    <span class="pull-right text-muted small">12 minutes ago</span>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <div>
+                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                    <span class="pull-right text-muted small">4 minutes ago</span>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <div>
+                    <i class="fa fa-tasks fa-fw"></i> New Task
+                    <span class="pull-right text-muted small">4 minutes ago</span>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <div>
+                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                    <span class="pull-right text-muted small">4 minutes ago</span>
+                  </div>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a class="text-center" href="#">
+                  <strong>See All Alerts</strong>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+            <!-- /.dropdown-alerts -->
+          </li>
+          <!-- /.dropdown -->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+              </li>
+              <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fa fa-sign-out fa-fw"></i> Logout
+                <% end %>
+              </li>
+            </ul>
+            <!-- /.dropdown-user -->
+          </li>
+          <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+        <div class="navbar-default sidebar" role="navigation">
+          <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+              <li class="sidebar-back">
+                <%= link_to dashboard_blogs_path do %>
+                  <i class="fa fa-level-up"></i> Back to list
+                <% end %>
+              </li>
+              <li>
+                <%= link_to dashboard_blog_path(alias: @blog.alias), class: 'active' do %>
+                  <i class="fa fa-dashboard fa-fw"></i> Dashboard
+                <% end %>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-table fa-fw"></i> Resources<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <%= link_to 'Posts', dashboard_blog_posts_path(alias: @blog.alias) %>
+                  </li>
+                  <li>
+                    <%= link_to 'Comments', dashboard_blog_posts_path(alias: @blog.alias) %>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Manage Blog<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                  <li>
+                    <%= link_to 'Edit', dashboard_edit_blog_path(alias: @blog.alias) %>
+                  </li>
+                  <li>
+                    <%= link_to 'Customise', dashboard_customise_blog_path(alias: @blog.alias) %>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+      </nav>
 
-      <%= yield %>
+      <div id="page-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <h1 class="page-header"><%= yield :sub_header %></h1>
+            </div>
+          </div>
+        <%= yield %>
+        </div>
+      </div>
     </div>
+
+    <script type="text/javascript">
+      $(function() {
+        $('#side-menu').metisMenu();
+      });
+
+      //Loads the correct sidebar on window load,
+      //collapses the sidebar on window resize.
+      // Sets the min-height of #page-wrapper to window size
+      $(function() {
+        $(window).bind("load resize", function() {
+          topOffset = 50;
+          width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
+          if (width < 768) {
+            $('div.navbar-collapse').addClass('collapse')
+            topOffset = 100; // 2-row-menu
+          } else {
+            $('div.navbar-collapse').removeClass('collapse')
+          }
+
+          height = (this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height;
+          height = height - topOffset;
+          if (height < 1) height = 1;
+          if (height > topOffset) {
+            $("#page-wrapper").css("min-height", (height) + "px");
+          }
+        })
+      });
+    </script>
+
+    <script type="text/javascript">
+      $(function() {
+        var tax_data = [
+          {"period": "2011 Q3", "licensed": 3407, "sorned": 660},
+          {"period": "2011 Q2", "licensed": 3351, "sorned": 629},
+          {"period": "2011 Q1", "licensed": 3269, "sorned": 618},
+          {"period": "2010 Q4", "licensed": 3246, "sorned": 661},
+          {"period": "2009 Q4", "licensed": 3171, "sorned": 676},
+          {"period": "2008 Q4", "licensed": 3155, "sorned": 681},
+          {"period": "2007 Q4", "licensed": 3226, "sorned": 620},
+          {"period": "2006 Q4", "licensed": 3245, "sorned": null},
+          {"period": "2005 Q4", "licensed": 3289, "sorned": null}
+        ];
+
+        Morris.Line({
+          element: 'morris-line-chart',
+          data: tax_data,
+          xkey: 'period',
+          ykeys: ['licensed', 'sorned'],
+          labels: ['Licensed', 'Off the road'],
+          resize: true
+        });
+
+        Morris.Donut({
+          element: 'morris-donut-chart',
+          data: [{
+            label: "Download Sales",
+            value: 12
+          }, {
+            label: "In-Store Sales",
+            value: 30
+          }, {
+            label: "Mail-Order Sales",
+            value: 20
+          }],
+          resize: true
+        });
+      });
+    </script>
   </body>
 </html>

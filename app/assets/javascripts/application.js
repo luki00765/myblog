@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require raphael
+//= require morris
+//= require ckeditor/init

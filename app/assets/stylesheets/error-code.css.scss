@@ -1,0 +1,27 @@
+html, body {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.error-code-content {
+  display: table-row;
+  background-color: #eee;
+} 
+
+.error-content {
+  background-color: #1d1d1d;
+  display: table-row;
+  color: #aaa;
+}
+
+.error-code-content .error-code {
+  display: table-cell;
+  vertical-align: bottom;
+  text-align: center;
+  font-size: 8em;
+}
+
+.error-content * {
+  margin-top: 20px;
+}

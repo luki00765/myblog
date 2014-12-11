@@ -1,11 +1,11 @@
 <% @posts.each do |post| %>
 <div class="blog-post">
   <h2 class="blog-post-title">
-    <%= link_to post.title, post_path(post) %>
+    <%= link_to post.title, blog_post_path(alias: @blog.alias, id: post.id) %>
   </h2>
   <p class="blog-post-meta"><%= post.published_at.strftime("%B %d, %Y") %></p>
 
-  <%= post.body %>
+  <%= post.body.html_safe %>
 </div>
 <% end %>
 

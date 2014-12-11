@@ -1,34 +1,20 @@
 <% content_for :sub_header do %>
-  Listing posts
+  <i class="fa fa-table fa-fw"></i> Listing posts
 <% end %>
 
-<%= link_to 'New Post', new_dashboard_post_path %>
+<%= link_to 'New Post', dashboard_blog_new_post_path, class: 'btn btn-success' %>
 
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
+<table class="table">
+  <thead>
+    <th>Title</th>
+    <th>Published at</th>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
       <tr>
-        <th>#</th>
-        <th>Title</th>
-        <th>Body</th>
-        <th>Published At</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.id %></td>
         <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= post.published_at %></td>
-        <td><%#= link_to 'Show', dashboard_blog_post_path(@blog, post) %></td>
-        <td><%= link_to 'Edit', edit_dashboard_post_path(@blog, post) %></td>
-        <td><%#= link_to 'Destroy', dashboard_blog_post_path(@blog, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= post.published_at.strftime("%B %d, %Y") %></td>
       </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-
-
+    <% end %>
+  <tbody>
+</table>

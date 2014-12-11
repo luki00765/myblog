@@ -1,2 +1,155 @@
-Dane statystyczne
+<% content_for :sub_header do %>
+  <i class="fa fa-dashboard fa-fw"></i> Dashboard
+<% end %>
 
+<div class="row">
+  <div class="col-lg-3 col-md-6">
+    <div class="panel panel-first">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-comments fa-5x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div class="huge"><%= @blog.comments.count %></div>
+            <div>Comments!</div>
+          </div>
+        </div>
+      </div>
+      <a href="#">
+        <div class="panel-footer">
+          <span class="pull-left">View Details</span>
+          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="panel panel-second">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-tasks fa-5x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div class="huge"><%= @blog.posts.count %></div>
+            <div>Posts!</div>
+          </div>
+        </div>
+      </div>
+      <a href="#">
+        <div class="panel-footer">
+          <span class="pull-left">View Details</span>
+          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="panel panel-third">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-shopping-cart fa-5x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div class="huge">0</div>
+            <div>I do not know!</div>
+          </div>
+        </div>
+      </div>
+      <a href="#">
+        <div class="panel-footer">
+          <span class="pull-left">View Details</span>
+          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="panel panel-fourth">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="fa fa-support fa-5x"></i>
+          </div>
+          <div class="col-xs-9 text-right">
+            <div class="huge">0</div>
+            <div>I do not know!</div>
+          </div>
+        </div>
+      </div>
+      <a href="#">
+        <div class="panel-footer">
+          <span class="pull-left">View Details</span>
+          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+          <div class="clearfix"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-bar-chart-o fa-fw"></i> Line Chart Example
+        <div class="pull-right">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+              Actions
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+              <li><a href="#">Action</a>
+              </li>
+              <li><a href="#">Another action</a>
+              </li>
+              <li><a href="#">Something else here</a>
+              </li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body line-chart-panel">
+        <div id="morris-line-chart"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-bar-chart-o fa-fw"></i> Line Chart Example
+        <div class="pull-right">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+              Actions
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+              <li><a href="#">Action</a>
+              </li>
+              <li><a href="#">Another action</a>
+              </li>
+              <li><a href="#">Something else here</a>
+              </li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body donut-chart-panel">
+        <div id="morris-donut-chart"></div>
+      </div>
+    </div>
+  </div>
+</div>
