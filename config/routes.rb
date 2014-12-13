@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  get '/home' => 'pages#home'
 
   devise_for :users
 
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     authenticated :user do
-      root 'dashboard/blogs#index', as: :authenticated_root
+      root 'dashboard/blogs#index', as: :root
     end
 
     unauthenticated do
@@ -31,14 +30,25 @@ Rails.application.routes.draw do
     get '/blogs/:alias' => 'blogs#show', as: :blog
     get '/blogs/:alias/customise' => 'blogs#edit', as: :customise_blog
     patch '/blogs/:alias/customise' => 'blogs#update'
-    
+
+    get '/messages/new' => 'messages#new', as: :new_message
+    post '/messages/new' => 'messages#create'
+    get '/messages/:id/edit' => 'messages#edit', as: :edit_message
+    patch '/messages/:id/edit' => 'messages#update'
+    get '/messages' => 'messages#index', as: :messages
+
+    root 'blogs#index'
+
     scope '/blogs/:alias', as: :blog do
       get '/posts/new' => 'posts#new', as: :new_post
       post '/posts/new' => 'posts#create'
       get '/posts/:id/edit' => 'posts#edit', as: :edit_post
       patch '/posts/:id/edit' => 'posts#update'
       get '/posts' => 'posts#index', as: :posts
+
+      get '/comments/reply' => 'comments#new', as: :new_comment
+      post '/comments/reply' => 'comments#create'
+      get '/comments' => 'comments#index', as: :comments
     end
   end
 end
-

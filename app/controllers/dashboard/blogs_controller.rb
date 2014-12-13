@@ -49,9 +49,9 @@ class Dashboard::BlogsController < Dashboard::BaseController
   
   def set_layout
     if ['index', 'new'].include?(action_name)
-      'application'
-    else
       'dashboard'
+    else
+      'dashboard_blog'
     end
   end
 

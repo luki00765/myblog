@@ -20,9 +20,6 @@ class Dashboard::PostsController < Dashboard::BaseController
     @post = Post.new
   end
 
-  def edit
-  end
-
   def create
     @post = Post.new(post_params)
     @post.blog_id = @blog.id
@@ -41,10 +38,13 @@ class Dashboard::PostsController < Dashboard::BaseController
     end
   end
 
+  def edit
+  end
+
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to dashboard_posts_path(@blog), notice: 'Post was successfully updated.' }
+        format.html { redirect_to dashboard_blog_posts_path(alias: @blog.alias), notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }

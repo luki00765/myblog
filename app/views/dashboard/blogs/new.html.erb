@@ -1,44 +1,36 @@
-<%= render "shared/navbar_authenticated" %>
+<% content_for :sub_header do %>
+  <i class="fa fa-wrench fa-fw"></i> New Blog
+<% end %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">
-        <i class="fa fa-plus fa-fw"></i> New blog
-      </h1>
-    </div>
-  </div>
+<%= form_for @blog, url: dashboard_new_blog_path do |f| %>
+<% if @blog.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
 
-  <%= form_for @blog, url: dashboard_new_blog_path do |f| %>
-    <% if @blog.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
-
-        <ul>
-        <% @blog.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
+  <ul>
+    <% @blog.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
     <% end %>
-
-    <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </div>
-
-    <div class="field">
-      <%= f.label :alias %><br>
-      <%= f.text_field :alias %>
-    </div>
-
-    <div class="field">
-      <%= f.label :template_color %><br>
-      <%= f.text_field :template_color %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
+  </ul>
 </div>
+<% end %>
+
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</div>
+
+<div class="field">
+  <%= f.label :alias %><br>
+  <%= f.text_field :alias %>
+</div>
+
+<div class="field">
+  <%= f.label :template_color %><br>
+  <%= f.text_field :template_color %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

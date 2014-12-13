@@ -1,10 +1,23 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+.navbar .container-fluid {
+  padding-right: 0px;
+}
+
+.leaficon {
+  background: url('/assets/leaf.svg') no-repeat center;
+  background-size: 100% auto;
+  height: 18px;
+  width: 18px;
+  float: left;
+  margin-right: 5px;
+}
+
 /*
  * Globals
  */
-
-body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
 
 h1, .h1,
 h2, .h2,
@@ -163,3 +176,110 @@ h6, .h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+/* Navbar */
+
+.navbar-default {
+  background: none;
+}
+
+.navbar-brand {
+  font-size: 1.5em;
+  color: #fff !important;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.navbar {
+  background-color: #222222 !important;
+  border: 0px solid transparent;
+}
+
+.navbar-header {
+  background-color: #222222 !important;
+  border: 0px solid transparent;
+}
+
+.navbar-static-top {
+  border-width: 0px !important;
+}
+
+.navbar a:hover, .navbar a:visited, .navbar a:link, .navbar a:focus, .navbar a:active  {
+  background: none !important;
+}
+
+.navbar a .fa {
+  color: #969696  !important;
+}
+
+.navbar a:hover .fa {
+  color: #fff !important;
+}
+
+.navbar-top-links {
+  margin-right: 0;
+}
+
+.navbar-top-links li {
+  display: inline-block;
+}
+
+.navbar-top-links li:last-child {
+  margin-right: 15px;
+}
+
+.navbar-top-links li a {
+  padding: 15px;
+  min-height: 50px;
+}
+
+.navbar-top-links .dropdown-menu li {
+  display: block;
+}
+
+.navbar-top-links .dropdown-menu li:last-child {
+  margin-right: 0;
+}
+
+.navbar-top-links .dropdown-menu li a {
+  padding: 3px 20px;
+  min-height: 0;
+}
+
+.navbar-top-links .dropdown-menu li a div {
+  white-space: normal;
+}
+
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+  width: 310px;
+  min-width: 0;
+}
+
+.navbar-top-links .dropdown-messages {
+  margin-left: 5px;
+}
+
+.navbar-top-links .dropdown-tasks {
+  margin-left: -59px;
+}
+
+.navbar-top-links .dropdown-user {
+  right: 0;
+  left: auto;
+}
+
+ul.nav.navbar-top-links.navbar-left a {
+  color: #969696;
+}
+
+ul.nav.navbar-top-links.navbar-left a:hover {
+  color: #fff;
+}
+
+@media (min-width: $screen-sm-min) {
+  ul.nav.navbar-top-links.navbar-left {
+    margin-left: 120px;
+  }
+}
+

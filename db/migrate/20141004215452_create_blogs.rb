@@ -5,7 +5,6 @@ class CreateBlogs < ActiveRecord::Migration
       t.string :alias
       t.string :template_color
       t.references :user, index: true
-
       t.timestamps
     end
   end

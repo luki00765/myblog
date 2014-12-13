@@ -1,29 +1,25 @@
-<%= form_for @post, url: dashboard_blog_new_post_path(alias: @blog.alias) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= cktext_area :post, :body, :cols => 40, :ckeditor => {:toolbar => 'mini'} %>
-  </div>
-  <div class="field">
-    <%= f.label :published_at %><br>
-    <%= f.date_field :published_at, min: Date.today, value: '' %>
-  </div>
-  <div class="actions">
-    <%= f.submit :submit %>
-  </div>
+<% if @post.errors.any? %>
+<div class="alert alert-danger">
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
+
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</div>
+<div class="field">
+  <%= f.label :body %><br>
+  <%= cktext_area :post, :body, :cols => 40, :ckeditor => {:toolbar => 'mini'} %>
+</div>
+<div class="field">
+  <%= f.label :published_at %><br>
+  <%= f.date_field :published_at, min: Date.today, value: '' %>
+</div>
+<div class="actions">
+  <%= f.submit :submit %>
+</div>

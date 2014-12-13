@@ -1,4 +1,7 @@
 @import "bootstrap-sprockets";
+
+$input-border-focus: #222222 ;
+
 @import "bootstrap";
 @import "font-awesome";
 
@@ -12,7 +15,6 @@
 }
 
 .navbar {
-  //background-color: #171717 !important;
   border: 0px solid transparent;
 }
 
@@ -30,12 +32,15 @@
 
 .navbar .navbar-brand {
   font-size: 1.5em;
+  color: #fff !important;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .navbar-form .form-control {
   border-color: #555 !important;
-  background-color: #222 !important;
+  background-color: #3a3a3a !important;
   color: #fff !important;
+  border: none;
 }
 
 .navbar-form .form-control:focus {
@@ -74,3 +79,136 @@
   }
 }
 
+html,body {
+  height:100%;
+}
+
+#start  {
+  height: 100%;
+  width: 100%;
+  display: table;
+  background-color: #111;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#start .container {
+  color: #eee;
+  width: 100%;
+  min-height:100%;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 60px 0px;
+}
+
+#start .container h1 {
+  font-size: 4em !important;
+}
+
+#customise, #features {
+  color: #666;
+  background-color: #f2f7fa;
+  padding-top: 50px;
+}
+
+footer {
+  padding: 50px;
+  background-color: #f2f7fa;
+}
+
+#customise .form-horizontal {
+  margin-top: 30px;
+}
+
+.navbar-right {
+  margin-right: 0;
+}
+
+.navbar {
+  background-color: #222222 !important;
+  border: 0px solid transparent;
+}
+
+.navbar-header {
+  background-color: #222222 !important;
+  border: 0px solid transparent;
+}
+
+.navbar-static-top {
+  border-width: 0px !important;
+}
+
+.navbar a:hover, .navbar a:visited, .navbar a:link, .navbar a:focus, .navbar a:active  {
+  background: none !important;
+}
+
+.navbar a .fa {
+  color: #a8acb1  !important;
+}
+
+.navbar a:hover .fa {
+  color: #fff !important;
+}
+
+.navbar-top-links {
+  margin-right: 0;
+}
+
+.navbar-top-links li {
+  display: inline-block;
+}
+
+.navbar-top-links li:last-child {
+  margin-right: 15px;
+}
+
+.navbar-top-links li a {
+  padding: 15px;
+  min-height: 50px;
+}
+
+.navbar-top-links .dropdown-menu li {
+  display: block;
+}
+
+.navbar-top-links .dropdown-menu li:last-child {
+  margin-right: 0;
+}
+
+.navbar-top-links .dropdown-menu li a {
+  padding: 3px 20px;
+  min-height: 0;
+}
+
+.navbar-top-links .dropdown-menu li a div {
+  white-space: normal;
+}
+
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+  width: 310px;
+  min-width: 0;
+}
+
+.navbar-top-links .dropdown-messages {
+  margin-left: 5px;
+}
+
+.navbar-top-links .dropdown-tasks {
+  margin-left: -59px;
+}
+
+.navbar-top-links .dropdown-alerts {
+  margin-left: -123px;
+}
+
+.navbar-top-links .dropdown-user {
+  right: 0;
+  left: auto;
+}
+
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks,
+.navbar-top-links .dropdown-alerts {
+  margin-left: auto;
+}

@@ -2,4 +2,6 @@
   <i class="fa fa-plus fa-fw"></i> New post
 <% end %>
 
-<%= render 'form' %>
+<%= form_for @post, url: dashboard_blog_new_post_path(alias: @blog.alias) do |f| %>
+  <%= render 'form', f: f %>
+<% end %>

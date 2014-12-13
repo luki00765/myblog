@@ -1,0 +1,18 @@
+<span>YOUR ACCOUNT</span>
+<ul class="nav nav-second-level">
+  <li>
+    <%= link_to edit_user_registration_path do %>
+    <i class="fa fa-user fa-fw"></i> Profile
+    <% end %>
+  </li>
+  <li>
+    <%= link_to dashboard_messages_path do %>
+    <i class="fa fa-envelope fa-fw"></i> Messages
+    <% end %>
+  </li>
+  <li>
+    <%= link_to dashboard_root_path do %>
+    <i class="fa fa-bell fa-fw"></i> Notifications
+    <% end %>
+  </li>
+</ul>

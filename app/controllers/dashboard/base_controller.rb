@@ -3,7 +3,7 @@ class Dashboard::BaseController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  layout 'dashboard'
+  layout 'dashboard_blog'
 
   def set_blog
     @blog = Blog.find_by_alias(params[:alias])
